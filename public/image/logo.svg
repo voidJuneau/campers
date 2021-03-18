@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="222" height="22" viewBox="0 0 222 22">
+  <g id="camping-tent" transform="translate(14.347 4.048)">
+    <g id="Group_2" data-name="Group 2" transform="translate(0 0)">
+      <path id="Path_145" data-name="Path 145" d="M237.485,97.487a.718.718,0,0,0-.5-.24h-4.42c-.157,0-.162.114-.085.245L240.3,110.57a.352.352,0,0,0,.412.1l4.262-1.3a.225.225,0,0,0,.121-.344Z" transform="translate(-230.303 -97.247)" fill="#fff"/>
+      <path id="Path_146" data-name="Path 146" d="M2.772,117.122l2.75-7.757v7.5a.565.565,0,0,0,.653.633h5.358c.114,0,.161-.243.1-.375L6.1,104.159c-.057-.131-.148-.131-.2,0L4.51,107.376a1.054,1.054,0,0,1-.283.37c-1.4,1.028-3.293,2.4-4.131,2.888-.126.073-.119.282-.021.409a12.037,12.037,0,0,1,.948,1.455,8.611,8.611,0,0,1,.551,1.244.769.769,0,0,1-.017.487l-1.191,2.9c-.056.131-.009.375.105.375h2C2.586,117.5,2.72,117.257,2.772,117.122Zm-1.6-5.976a.12.12,0,0,1,.015-.182c.59-.408,3.381-2.345,4.157-2.972.059-.047.08-.022.049.059l-2.646,6.872c-.031.081-.067.074-.082-.014A8.772,8.772,0,0,0,1.173,111.146Z" transform="translate(-0.001 -103.796)" fill="#fff"/>
+    </g>
+  </g>
+  <text id="H_MILTONIAN_CAMPERS" data-name="H   MILTONIAN CAMPERS" transform="translate(0 18)" fill="#fff" font-size="20" font-family="BerlinSansFB-Reg, Berlin Sans FB"><tspan x="0" y="0" xml:space="preserve">H   MILTONIAN CAMPERS</tspan></text>
+</svg>
