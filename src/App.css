@@ -1,3 +1,7 @@
+.app {
+  max-height: 100%;
+}
+
 .bg-dark {
   background: linear-gradient(175deg, #085F63 45%, #00BFA6 125%);
 }
@@ -5,11 +9,12 @@
 .navbar-dark .navbar-brand {
   display: flex;
   align-content: center;
-  margin-right: 0;
+  margin-right: 1.5rem;
 }
 
-nav {
-  z-index: 1;
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,.90);
+  padding: 0.5rem 1.5rem;
 }
 
 .GroundList {
@@ -26,6 +31,22 @@ nav {
 }
 
 .side-page {
-  margin-top: 56px;
+  margin: 56px auto 0 auto;
+  padding: 14px 28px;
+  /* background-color: lightgray; */
 }
 
+.map-container {
+  position: fixed;
+  right: 0;
+  width: 58.333%;
+  z-index: -1;
+}
+
+.card {
+  margin: 15px 0;
+}
+
+.btn-primary {
+  background-color: #085F63;
+}

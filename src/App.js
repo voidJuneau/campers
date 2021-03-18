@@ -45,11 +45,11 @@ function App() {
       </Navbar>
       <Container className="main-container">
         <Row>
-          {/* <Col sm={12} md={5} className="main-col"> */}
-          <Col className="main-col">
+          <Col sm={12} md={5} className="main-col">
+          {/* <Col className="main-col"> */}
             <GroundList grounds={grounds} setMarkers={setMarkers} />
           </Col>
-          <Col className="main-col">
+          <Col md={7} className="main-col">
             <Map center={center} markers={markers} />
           </Col>
         </Row>
