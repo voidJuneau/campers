@@ -12,7 +12,7 @@ import GroundList from './components/GroundList';
 import Map from './components/Map';
 import Api from './utils/api';
 
-function App() {
+const App = () => {
   const [center, setCenter] = useState({lat: 43.2464343,
                                         lng: -79.8618984});
 

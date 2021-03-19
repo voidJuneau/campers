@@ -2,8 +2,7 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-function Ground({ ground }) {
-  console.log(ground)
+const Ground = ({ ground }) => {
   return (
     <Col xm={12} sm={12} lg={6}>
       <Card>

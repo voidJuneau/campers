@@ -6,22 +6,23 @@ import Button from "react-bootstrap/Button"
 import { Marker } from "@react-google-maps/api";
 
 import Ground from "./Ground";
+import ToggleMapButton from "./ToggleMapButton";
 
-function GroundList(props) {
+const GroundList = ({ grounds, setMarkers }) => {
   useEffect(() => {
-    const allGoundMarker = props.grounds.map(g => (
+    const allGoundMarker = grounds.map(g => (
       <Marker key={g.id}
       position={{lat: parseFloat(g.lat), lng: parseFloat(g.lon)}} 
 
       />))
-    props.setMarkers(allGoundMarker)
-  }, [props.grounds]);
+    setMarkers(allGoundMarker)
+  }, [grounds]);
   
   return (
-    <Container className="GroundList side-page">
+    <Container className="side-page">
       <Row className="justify-content-between">
         <Col className="d-xs-block d-sm-block d-md-none">
-          <Button>See on Map</Button>
+          <ToggleMapButton />
         </Col>
         <Col className="d-none d-xl-block"></Col>
         <Col className="d-flex justify-content-end">
@@ -29,7 +30,7 @@ function GroundList(props) {
         </Col>
       </Row>
       <Row>
-        {props.grounds.map(g => (
+        {grounds.map(g => (
           <Ground key={g.id} ground={g} />
         ))}
       </Row>

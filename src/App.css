@@ -36,7 +36,7 @@
   /* background-color: lightgray; */
 }
 
-.map-container {
+.side-map {
   position: fixed;
   right: 0;
   width: 58.333%;
@@ -49,4 +49,11 @@
 
 .btn-primary {
   background-color: #085F63;
+}
+
+.map-button {
+  position: absolute;
+  top: 70px;
+  left: 28px;
+  z-index: 1;
 }
