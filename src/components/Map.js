@@ -9,6 +9,7 @@ const containerStyle = {
 };
 
 const Map = (props) => {
+  console.log(process.env.REACT_APP_GOOGLE_KEY)
   return (
     <div id="map-container" className="side-map d-none d-md-block">
       <ToggleMapButton className="map-button" />
