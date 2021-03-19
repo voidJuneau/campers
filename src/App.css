@@ -56,7 +56,8 @@
   z-index: 1;
 }
 
-@media only screen and (max-width: 768px) {
+/* Map - less then medium */
+@media only screen and (max-width: 767px) {
   .side-map {
     width: 100%;
   }
@@ -66,4 +67,46 @@
 
 .card {
   margin: 15px 0;
+}
+
+/* Main page */
+
+#main-wraper {
+  max-width: 500px;
+  margin: 30vh auto;
+  position: relative;
+}
+
+#main-image {
+  transform: scaleX(-1);
+}
+
+#main-overay-text {
+  position: absolute;
+  top: 10%;
+  left: -5%;
+  font-size: 19px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+/* Main - medium+ */
+@media only screen and (min-width: 768px) {
+  #main-wraper {
+    margin: 30vh auto;
+  }
+}
+
+/* Main - large+ */
+@media only screen and (min-width: 992px) {
+  #main-overay-text {
+    font-size: 24px;
+  }
+}
+
+/* Main - xlarge+ */
+@media only screen and (min-width: 1200px) {
+  #main-overay-text {
+    font-size: 28px;
+  }
 }

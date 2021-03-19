@@ -33,7 +33,7 @@ const App = () => {
       <div className="App">
         <Navbar bg="dark" variant="dark" expand="md" fixed="top">
           <Navbar.Brand href="/">
-            <img src="/image/logo.svg" alt="Site logo" />
+            <img src="/images/logo.svg" alt="Site logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
