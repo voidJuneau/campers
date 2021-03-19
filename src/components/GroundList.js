@@ -7,15 +7,11 @@ import { Marker } from "@react-google-maps/api";
 
 import Ground from "./Ground";
 import ToggleMapButton from "./ToggleMapButton";
+import allGroundMarkers from "../controllers/allGroundMarkers";
 
 const GroundList = ({ grounds, setMarkers }) => {
   useEffect(() => {
-    const allGoundMarker = grounds.map(g => (
-      <Marker key={g.id}
-      position={{lat: parseFloat(g.lat), lng: parseFloat(g.lon)}} 
-
-      />))
-    setMarkers(allGoundMarker)
+    allGroundMarkers(grounds, setMarkers)
   }, [grounds]);
   
   return (

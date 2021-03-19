@@ -1,7 +1,14 @@
+/* General */
+
 .app {
   max-height: 100%;
 }
 
+.btn-primary {
+  background-color: #085F63;
+}
+
+/* Navbar */
 .bg-dark {
   background: linear-gradient(175deg, #085F63 45%, #00BFA6 125%);
 }
@@ -17,9 +24,7 @@
   padding: 0.5rem 1.5rem;
 }
 
-.GroundList {
-  height: 100%;
-}
+/* Main structure */
 
 .main-container {
   margin: 0;
@@ -33,8 +38,9 @@
 .side-page {
   margin: 56px auto 0 auto;
   padding: 14px 28px;
-  /* background-color: lightgray; */
 }
+
+/* Map */
 
 .side-map {
   position: fixed;
@@ -43,23 +49,21 @@
   z-index: -1;
 }
 
+.map-button {
+  position: absolute;
+  top: 70px;
+  left: 28px;
+  z-index: 1;
+}
+
 @media only screen and (max-width: 768px) {
   .side-map {
     width: 100%;
   }
 }
 
+/* GroundList */
+
 .card {
   margin: 15px 0;
-}
-
-.btn-primary {
-  background-color: #085F63;
-}
-
-.map-button {
-  position: absolute;
-  top: 70px;
-  left: 28px;
-  z-index: 1;
 }
