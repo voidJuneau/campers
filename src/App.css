@@ -43,6 +43,12 @@
   z-index: -1;
 }
 
+@media only screen and (max-width: 768px) {
+  .side-map {
+    width: 100%;
+  }
+}
+
 .card {
   margin: 15px 0;
 }

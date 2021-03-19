@@ -45,11 +45,11 @@ const App = () => {
       </Navbar>
       <Container className="main-container">
         <Row>
-          <Col sm={12} md={5} className="main-col">
+          <Col id="page-col" sm={12} md={5} className="main-col">
           {/* <Col className="main-col"> */}
             <GroundList grounds={grounds} setMarkers={setMarkers} />
           </Col>
-          <Col md={7} className="main-col">
+          <Col id="map-col" md={7} className="main-col">
             <Map center={center} markers={markers} />
           </Col>
         </Row>
