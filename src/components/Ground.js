@@ -1,18 +1,36 @@
-import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
+import React, { useState, useEffect } from "react";
+import { Button, Container, Image, Row } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 
-const Ground = ({ ground }) => {
+const Ground = ({ grounds, setMarkers }) => {
+  const [ ground, setGround ] = useState();
+  const { id } = useParams();
+
+  useEffect(() => {
+    setGround(grounds.find(g => g.id == id));
+    console.log(ground)
+  }, [grounds]);
+  
   return (
-    <Col xm={12} sm={12} lg={6}>
-      <Card>
-        <Card.Img variant="top" src={ground.img} />
-        <Card.Body>
-          <Card.Title>{ground.name}</Card.Title>
-          <Card.Text>See in detail »</Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
+    <Container className="side-page">
+      {ground && 
+        <React.Fragment>
+          <h1>{ground.name}</h1>
+          <Image fluid src={ground.img} alt={ground.name} className="mt-5 mb-5" />
+          <p>Address <br />
+            {ground.address}</p>
+          <p>Telephone <br />
+            {ground.phone}</p>
+          <p>Homepage <br />
+            <Link to={ground.url}>{ground.url}</Link></p>
+          <p>Rates <br />
+            {ground.rate}</p>
+          <Row className="justify-content-end mt-5">
+            <Button>Edit</Button>
+          </Row>
+        </React.Fragment>
+      }
+    </Container>
   );
 }
 

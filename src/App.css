@@ -4,8 +4,17 @@
   max-height: 100%;
 }
 
-.btn-primary {
-  background-color: #085F63;
+.btn-primary,
+button.btn.btn-primary:focus,
+button.btn.btn-primary:active,
+button.btn.btn-primary:hover{
+  background-color: #085F63!important;
+  border-color: #085F63;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: #085F63;
 }
 
 /* Navbar */
@@ -67,6 +76,10 @@
 
 .card {
   margin: 15px 0;
+}
+
+.card .card-body .card-title {
+  color: #303030;
 }
 
 /* Main page */

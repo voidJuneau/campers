@@ -3,9 +3,8 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Button from "react-bootstrap/Button"
-import { Marker } from "@react-google-maps/api";
 
-import Ground from "./Ground";
+import GroundCard from "./GroundCard";
 import ToggleMapButton from "./ToggleMapButton";
 import allGroundMarkers from "../controllers/allGroundMarkers";
 
@@ -27,7 +26,7 @@ const GroundList = ({ grounds, setMarkers }) => {
       </Row>
       <Row>
         {grounds.map(g => (
-          <Ground key={g.id} ground={g} />
+          <GroundCard key={g.id} ground={g} />
         ))}
       </Row>
     </Container>

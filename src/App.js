@@ -1,19 +1,16 @@
-import './App.css';
+import "./App.css";
 
-import React, { useState, useEffect } from 'react';
-import Container from "react-bootstrap/Container"
-import Nav from "react-bootstrap/Nav"
-import Navbar from "react-bootstrap/Navbar"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
+import React, { useState, useEffect } from "react";
+import { Col, Container, Nav, Navbar, Row } from "react-bootstrap"
 import { Marker } from "@react-google-maps/api";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Api from './utils/api';
-import Map from './components/Map';
-import GroundList from './components/GroundList';
-import Main from './components/Main';
+import Api from "./utils/api";
 import allGroundMarkers from "./controllers/allGroundMarkers";
+import Map from "./components/Map";
+import Main from "./components/Main";
+import GroundList from "./components/GroundList";
+import Ground from "./components/Ground";
 
 const App = () => {
   const [center, setCenter] = useState({lat: 43.2464343, lng: -79.8618984});
@@ -50,6 +47,9 @@ const App = () => {
               <Switch>
                 <Route path="/grounds">
                   <GroundList grounds={grounds} setMarkers={setMarkers} />
+                </Route>
+                <Route path="/ground/:id">
+                  <Ground grounds={grounds} setMarkers={setMarkers} />
                 </Route>
                 <Route path="/">
                   <Main />
