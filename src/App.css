@@ -42,6 +42,7 @@ a, a:hover {
 
 .main-col {
   padding: 0;
+  z-index: 0;
 }
 
 .side-page {
@@ -50,6 +51,10 @@ a, a:hover {
 }
 
 /* Map */
+
+#map-container {
+  z-index: 1000;
+}
 
 .side-map {
   position: fixed;

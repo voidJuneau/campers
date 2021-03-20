@@ -8,11 +8,11 @@ import GroundCard from "./GroundCard";
 import ToggleMapButton from "./ToggleMapButton";
 import allGroundMarkers from "../controllers/allGroundMarkers";
 
-const GroundList = ({ grounds, setMarkers }) => {
+const GroundList = ({ grounds, setMarkers, selectedMarker, setSelectedMarker }) => {
   useEffect(() => {
-    allGroundMarkers(grounds, setMarkers)
-  }, [grounds]);
-  
+    allGroundMarkers(grounds, setMarkers, selectedMarker, setSelectedMarker);
+  }, [grounds, selectedMarker])
+
   return (
     <Container className="side-page">
       <Row className="justify-content-between">

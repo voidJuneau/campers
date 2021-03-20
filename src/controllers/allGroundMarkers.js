@@ -1,9 +1,11 @@
-import { Marker } from "@react-google-maps/api";
+import React from "react";
+import GroundMarker from "../components/GroundMarker";
 
-const allGroundMarkers = (grounds, setMarkers) => {
+const allGroundMarkers = (grounds, setMarkers, selectedMarker, setSelectedMarker) => {
   setMarkers(grounds.map(g => (
-        <Marker key={g.id}
-        position={{lat: parseFloat(g.lat), lng: parseFloat(g.lon)}} 
-    />)));
+      <GroundMarker ground={g} key={g.id} 
+      selectedMarker={selectedMarker} 
+      setSelectedMarker={setSelectedMarker} />
+    )));
 }
 export default allGroundMarkers;

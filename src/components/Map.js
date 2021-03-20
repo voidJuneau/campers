@@ -18,8 +18,6 @@ const Map = (props) => {
           mapContainerStyle={containerStyle}
           center={props.center}
           zoom={9}
-          // onLoad={onLoad}
-          // onUnmount={onUnmount}
         >
           {props.markers}
         </GoogleMap>

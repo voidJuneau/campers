@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Button, Container, Image, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 
-const Ground = ({ grounds, setMarkers }) => {
+import allGroundMarkers from "../controllers/allGroundMarkers";
+
+const Ground = ({ grounds, setMarkers, setSelectedMarker }) => {
   const [ ground, setGround ] = useState();
   const { id } = useParams();
 
   useEffect(() => {
-    setGround(grounds.find(g => g.id == id));
-    console.log(ground)
+    const ground = grounds.find(g => g.id === parseInt(id))
+    setGround(ground);
+    allGroundMarkers(grounds, setMarkers, ground, setSelectedMarker);
   }, [grounds]);
   
   return (
