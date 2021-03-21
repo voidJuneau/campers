@@ -6,12 +6,11 @@ import Button from "react-bootstrap/Button"
 
 import GroundCard from "./GroundCard";
 import ToggleMapButton from "./ToggleMapButton";
-import allGroundMarkers from "../controllers/allGroundMarkers";
 
-const GroundList = ({ grounds, setMarkers, selectedMarker, setSelectedMarker }) => {
+const GroundList = ({ grounds, setPlaces }) => {
   useEffect(() => {
-    allGroundMarkers(grounds, setMarkers, selectedMarker, setSelectedMarker);
-  }, [grounds, selectedMarker])
+    setPlaces(grounds);
+  }, [grounds])
 
   return (
     <Container className="side-page">

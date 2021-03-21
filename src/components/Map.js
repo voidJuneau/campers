@@ -1,25 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import ToggleMapButton from "./ToggleMapButton";
 import { Container } from 'react-bootstrap';
+
+import GroundMarker from "./GroundMarker";
 
 const containerStyle = {
   width: "100%",
   height: "100vh"
 };
 
-const Map = (props) => {
-  console.log(process.env.REACT_APP_GOOGLE_KEY)
+const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace }) => {
+  // console.log(process.env.REACT_APP_GOOGLE_KEY)
+  const [markers, setMarkers] = useState([]);
+  useEffect(() => {
+    const newMarkers = []
+    places.forEach(p => newMarkers.push(
+      <GroundMarker key={p.lat} ground={p} selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} />
+      ));
+      setMarkers(newMarkers);
+  }, [places, selectedPlace])
+
+  
   return (
     <div id="map-container" className="side-map d-none d-md-block">
       <ToggleMapButton className="map-button" />
       <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}>
         <GoogleMap
           mapContainerStyle={containerStyle}
-          center={props.center}
-          zoom={9}
+          center={center}
+          zoom={zoom}
         >
-          {props.markers}
+          {markers}
         </GoogleMap>
       </LoadScript>
     </div>

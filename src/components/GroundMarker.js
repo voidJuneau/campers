@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { InfoWindow, Marker } from "@react-google-maps/api";
+import { Link } from "react-router-dom";
 
-const GroundMarker = ({ ground, selectedMarker, setSelectedMarker }) => {
+const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
   const position={lat: parseFloat(ground.lat), lng: parseFloat(ground.lon)}
   const [ isShown, setIsShown ] = useState(false)
   const handleMouseOver = () => {
@@ -11,7 +12,7 @@ const GroundMarker = ({ ground, selectedMarker, setSelectedMarker }) => {
     setIsShown(false);
   }
   const handleClick = () => {
-    setSelectedMarker(ground);
+    setSelectedPlace(ground);
   }
 
   return (
@@ -20,9 +21,12 @@ const GroundMarker = ({ ground, selectedMarker, setSelectedMarker }) => {
       onMouseOut={handleMouseOut}
       onClick={handleClick}
       >
-      {(isShown || selectedMarker && selectedMarker.name === ground.name) && (
+      {(isShown || selectedPlace && selectedPlace.name === ground.name) && (
         <InfoWindow>
-          <div>{ground.name}</div>
+          <div>
+            <p>{ground.name}</p>
+            <p><Link to={`/ground/${ground.id}`}>See in detail »</Link></p>
+          </div>
         </InfoWindow>
       )}
     </Marker>

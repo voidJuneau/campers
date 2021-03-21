@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Button, Container, Image, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 
-import allGroundMarkers from "../controllers/allGroundMarkers";
-
-const Ground = ({ grounds, setMarkers, setSelectedMarker }) => {
+const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) => {
   const [ ground, setGround ] = useState();
   const { id } = useParams();
 
   useEffect(() => {
-    const ground = grounds.find(g => g.id === parseInt(id))
-    setGround(ground);
-    allGroundMarkers(grounds, setMarkers, ground, setSelectedMarker);
-  }, [grounds]);
+    setPlaces(grounds);
+    const thisGround = grounds.find(g => g.id === parseInt(id))
+    if (!thisGround) return;
+    setGround(thisGround);
+    setSelectedPlace(thisGround);
+    setCenter({lat:parseFloat(thisGround.lat), lng:parseFloat(thisGround.lon)});
+    setZoom(10);
+  }, [id, grounds]);
   
   return (
     <Container className="side-page">

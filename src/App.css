@@ -12,6 +12,10 @@ button.btn.btn-primary:hover{
   border-color: #085F63;
 }
 
+:focus {
+  outline: none!important;
+}
+
 a, a:hover {
   text-decoration: none;
   color: #085F63;

@@ -6,7 +6,7 @@ import { Marker } from "@react-google-maps/api";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Api from "./utils/api";
-import AllGroundMarkers from "./controllers/allGroundMarkers";
+import allGroundMarkers from "./controllers/allGroundMarkers";
 import Map from "./components/Map";
 import Main from "./components/Main";
 import GroundList from "./components/GroundList";
@@ -14,21 +14,14 @@ import Ground from "./components/Ground";
 
 const App = () => {
   const [center, setCenter] = useState({lat: 43.2464343, lng: -79.8618984});
+  const [zoom, setZoom] = useState(9);
   const [grounds, setGrounds] = useState([]);
-  const [markers, setMarkers] = useState([]);
-  const [selectedMarker, setSelectedMarker] = useState();
-  
-  useEffect(() => {
-    console.log(selectedMarker);
-  }, [selectedMarker])
+  const [places, setPlaces] = useState([]);
+  const [selectedPlace, setSelectedPlace] = useState();
   
   useEffect(() => {
     Api.all("ground").then(data => setGrounds(data));
   }, [])
-
-  useEffect(() => {
-    AllGroundMarkers(grounds, setMarkers, selectedMarker, setSelectedMarker);
-  }, [grounds]);
   
   return (
     <Router>
@@ -51,22 +44,21 @@ const App = () => {
             <Col id="page-col" sm={12} md={5} className="main-col">
               <Switch>
                 <Route path="/grounds">
-                  <GroundList grounds={grounds} setMarkers={setMarkers}
-                    selectedMarker={selectedMarker} setSelectedMarker={setSelectedMarker}/>
+                  <GroundList grounds={grounds} setPlaces={setPlaces} />
                 </Route>
                 <Route path="/ground/:id">
-                  <Ground grounds={grounds} setMarkers={setMarkers} 
-                    setSelectedMarker={setSelectedMarker}
+                  <Ground grounds={grounds} setPlaces={setPlaces} setSelectedPlace={setSelectedPlace}
+                    setCenter={setCenter} setZoom={setZoom}
                   />
                 </Route>
                 <Route path="/">
-                  <Main grounds={grounds} setMarkers={setMarkers}
-                    selectedMarker={selectedMarker} setSelectedMarker={setSelectedMarker}/>
+                  <Main grounds={grounds} setPlaces={setPlaces} />
                 </Route>
               </Switch>
             </Col>
             <Col id="map-col" md={7} className="main-col">
-              <Map center={center} markers={markers} />
+              <Map center={center} zoom={zoom} places={places}
+                selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} />
             </Col>
           </Row>
         </Container>

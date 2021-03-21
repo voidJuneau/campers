@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { Col, Image, Row } from "react-bootstrap";
 
-import allGroundMarkers from "../controllers/allGroundMarkers";
-
-const Main = ({ grounds, setMarkers, selectedMarker, setSelectedMarker }) => {
+const Main = ({ grounds, setPlaces }) => {
   useEffect(() => {
-    allGroundMarkers(grounds, setMarkers, selectedMarker, setSelectedMarker);
-  }, [grounds, selectedMarker])
+    setPlaces(grounds);
+  }, [grounds])
   
   return (
     <div className="side-page">
