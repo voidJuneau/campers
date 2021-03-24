@@ -16,7 +16,7 @@ const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace }) => {
   useEffect(() => {
     const newMarkers = []
     places.forEach(p => newMarkers.push(
-      <GroundMarker key={p.lat} ground={p} selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} />
+      <GroundMarker key={p.id + p.lat} ground={p} selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} />
       ));
       setMarkers(newMarkers);
   }, [places, selectedPlace])

@@ -2,15 +2,15 @@ import "./App.css";
 
 import React, { useState, useEffect } from "react";
 import { Col, Container, Nav, Navbar, Row } from "react-bootstrap"
-import { Marker } from "@react-google-maps/api";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Api from "./utils/api";
-import allGroundMarkers from "./controllers/allGroundMarkers";
+import api from "./utils/Api";
 import Map from "./components/Map";
 import Main from "./components/Main";
 import GroundList from "./components/GroundList";
 import Ground from "./components/Ground";
+import AddGround from "./components/AddGround";
+import EditGround from "./components/EditGround";
 
 const App = () => {
   const [center, setCenter] = useState({lat: 43.2464343, lng: -79.8618984});
@@ -20,7 +20,7 @@ const App = () => {
   const [selectedPlace, setSelectedPlace] = useState();
   
   useEffect(() => {
-    Api.all("ground").then(data => setGrounds(data));
+    api.all("ground").then(data => setGrounds(data));
   }, [])
   
   return (
@@ -43,10 +43,16 @@ const App = () => {
           <Row>
             <Col id="page-col" sm={12} md={5} className="main-col">
               <Switch>
-                <Route path="/grounds">
+                <Route exact path="/grounds">
                   <GroundList grounds={grounds} setPlaces={setPlaces} />
                 </Route>
-                <Route path="/ground/:id">
+                <Route path="/grounds/new">
+                  <AddGround setGrounds={setGrounds} />
+                </Route>
+                <Route path="/grounds/edit/:id">
+                  <EditGround grounds={grounds} setGrounds={setGrounds} />
+                </Route>
+                <Route path="/grounds/:id">
                   <Ground grounds={grounds} setPlaces={setPlaces} setSelectedPlace={setSelectedPlace}
                     setCenter={setCenter} setZoom={setZoom}
                   />

@@ -27,11 +27,13 @@ const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) =>
           <p>Telephone <br />
             {ground.phone}</p>
           <p>Homepage <br />
-            <Link to={ground.url}>{ground.url}</Link></p>
+            <a href={ground.url} target="_blank">{ground.url}</a></p>
           <p>Rates <br />
             {ground.rate}</p>
           <Row className="justify-content-end mt-5">
-            <Button>Edit</Button>
+            <Link to={`/grounds/edit/${ground.id}`}>
+              <Button>Edit</Button>
+            </Link>
           </Row>
         </React.Fragment>
       }

@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button"
 
 import GroundCard from "./GroundCard";
 import ToggleMapButton from "./ToggleMapButton";
+import { Link } from "react-router-dom";
 
 const GroundList = ({ grounds, setPlaces }) => {
   useEffect(() => {
@@ -20,7 +21,9 @@ const GroundList = ({ grounds, setPlaces }) => {
         </Col>
         <Col className="d-none d-xl-block"></Col>
         <Col className="d-flex justify-content-end">
-          <Button>Add New</Button>
+          <Link to="/grounds/new">
+            <Button>Add New</Button>
+          </Link>
         </Col>
       </Row>
       <Row>

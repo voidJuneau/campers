@@ -7,7 +7,7 @@ const GroundCard = ({ ground }) => {
 
   return (
     <Col xm={12} sm={12} lg={6}>
-      <Link to={`/ground/${ground.id}`}>
+      <Link to={`/grounds/${ground.id}`}>
         <Card>
           <Card.Img variant="top" src={ground.img} />
           <Card.Body>

@@ -22,10 +22,10 @@ const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
       onClick={handleClick}
       >
       {(isShown || selectedPlace && selectedPlace.name === ground.name) && (
-        <InfoWindow>
+        <InfoWindow position={position}>
           <div>
             <p>{ground.name}</p>
-            <p><Link to={`/ground/${ground.id}`}>See in detail »</Link></p>
+            <p><Link to={`/grounds/${ground.id}`}>See in detail »</Link></p>
           </div>
         </InfoWindow>
       )}
