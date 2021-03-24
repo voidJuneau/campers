@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import { Redirect, useParams } from "react-router";
 
 import GroundForm from "./GroundForm";
 import Api from "../utils/Api"
+import ToggleMapButton from "./ToggleMapButton";
 
 const EditGround = ({ grounds, setGrounds }) => {
   const { id } = useParams();
@@ -26,10 +27,8 @@ const EditGround = ({ grounds, setGrounds }) => {
   return (
     <Container className="side-page">
       {edited && <Redirect to={`/grounds/${id}`} />}
-      <div>
-        <h1> Edit </h1>
-        <GroundForm ground={ground} buttonText="Submit" onSubmit={handleSubmit} />
-      </div>
+      <h1 className="mb-5"> Edit </h1>
+      <GroundForm ground={ground} buttonText="Submit" onSubmit={handleSubmit} />
     </Container>
   )
 }

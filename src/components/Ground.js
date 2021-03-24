@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Button, Container, Image, Row } from "react-bootstrap";
+import { Button, Container, Image, Row, Col } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import ToggleMapButton from "./ToggleMapButton";
 
 const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) => {
   const [ ground, setGround ] = useState();
@@ -20,16 +21,23 @@ const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) =>
     <Container className="side-page">
       {ground && 
         <React.Fragment>
-          <h1>{ground.name}</h1>
-          <Image fluid src={ground.img} alt={ground.name} className="mt-5 mb-5" />
-          <p>Address <br />
-            {ground.address}</p>
-          <p>Telephone <br />
-            {ground.phone}</p>
-          <p>Homepage <br />
-            <a href={ground.url} target="_blank">{ground.url}</a></p>
-          <p>Rates <br />
-            {ground.rate}</p>
+          <Row>
+            <Col className="d-xs-block d-sm-block d-md-none mb-5 pl-0">
+              <ToggleMapButton />
+            </Col>
+          </Row>
+          <Row>
+            <h1>{ground.name}</h1>
+            <Image fluid src={ground.img} alt={ground.name} className="mt-5 mb-5" />
+            <p>Address <br />
+              {ground.address}</p>
+            <p>Telephone <br />
+              {ground.phone}</p>
+            <p>Homepage <br />
+              <a href={ground.url} target="_blank">{ground.url}</a></p>
+            <p>Rates <br />
+              {ground.rate}</p>
+          </Row>
           <Row className="justify-content-end mt-5">
             <Link to={`/grounds/edit/${ground.id}`}>
               <Button>Edit</Button>
