@@ -11,9 +11,9 @@ const ChecklistGroup = ({ items }) => {
 
   return (
     <div>
-    <Card>
-      <Card.Header className="mb-5">{items[0]}</Card.Header>
-      <Card.Body>
+    <Card className="mb-5">
+      <Card.Header>{items[0]}</Card.Header>
+      <Card.Body className="pb-1">
         <Form.Row>
             {items[1].map(i => (
               <Form.Group as={Col} className="col-12 col-sm-6 col-lg-4" key={i}>
