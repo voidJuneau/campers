@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Col, Container, Nav, Navbar, Row } from "react-bootstrap"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Api from "./utils/Api";
 import Map from "./components/Map";
 import Main from "./components/Main";
 import GroundList from "./components/GroundList";
@@ -12,6 +11,7 @@ import Ground from "./components/Ground";
 import AddGround from "./components/AddGround";
 import EditGround from "./components/EditGround";
 import Checklist from "./components/Checklist";
+import Api from "./utils/api";
 
 const App = () => {
   const [center, setCenter] = useState({lat: 43.2464343, lng: -79.8618984});

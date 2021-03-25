@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 
 import GroundForm from "./GroundForm";
-import Api from "../utils/Api"
+import Api from "../utils/api"
 import { Redirect } from "react-router";
 
 const AddGround = ({ setGrounds }) => {

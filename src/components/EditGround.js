@@ -3,7 +3,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import { Redirect, useParams } from "react-router";
 
 import GroundForm from "./GroundForm";
-import Api from "../utils/Api"
+import Api from "../utils/api"
 import ToggleMapButton from "./ToggleMapButton";
 
 const EditGround = ({ grounds, setGrounds }) => {
