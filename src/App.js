@@ -11,6 +11,7 @@ import GroundList from "./components/GroundList";
 import Ground from "./components/Ground";
 import AddGround from "./components/AddGround";
 import EditGround from "./components/EditGround";
+import Checklist from "./components/Checklist";
 
 const App = () => {
   const [center, setCenter] = useState({lat: 43.2464343, lng: -79.8618984});
@@ -56,6 +57,9 @@ const App = () => {
                   <Ground grounds={grounds} setPlaces={setPlaces} setSelectedPlace={setSelectedPlace}
                     setCenter={setCenter} setZoom={setZoom}
                   />
+                </Route>
+                <Route path="/checklist">
+                  <Checklist />
                 </Route>
                 <Route path="/">
                   <Main grounds={grounds} setPlaces={setPlaces} />
