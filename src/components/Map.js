@@ -11,7 +11,7 @@ const containerStyle = {
 };
 
 const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace }) => {
-  // console.log(process.env.REACT_APP_GOOGLE_KEY)
+  console.log(process.env.REACT_APP_GOOGLE_KEY)
   const [markers, setMarkers] = useState([]);
   useEffect(() => {
     const newMarkers = []
