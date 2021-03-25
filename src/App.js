@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Col, Container, Nav, Navbar, Row } from "react-bootstrap"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import api from "./utils/Api";
+import Api from "./utils/Api";
 import Map from "./components/Map";
 import Main from "./components/Main";
 import GroundList from "./components/GroundList";
@@ -21,7 +21,7 @@ const App = () => {
   const [selectedPlace, setSelectedPlace] = useState();
   
   useEffect(() => {
-    api.all("ground").then(data => setGrounds(data));
+    Api.all("ground").then(data => setGrounds(data));
   }, [])
   
   return (
