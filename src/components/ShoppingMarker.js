@@ -19,7 +19,7 @@ const ShoppingMarker = ({ shopping, refs, hoveredPlace }) => {
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
       >
-      {(isShown || hoveredPlace && hoveredPlace.address === shopping.address) && (
+      {(isShown || (hoveredPlace && hoveredPlace.address === shopping.address)) && (
         <InfoWindow position={position}>
           <div>
             <p>{shopping.name}</p>

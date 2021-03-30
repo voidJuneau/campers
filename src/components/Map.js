@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import ToggleMapButton from "./ToggleMapButton";
-import { Container } from 'react-bootstrap';
 
 import GroundMarker from "./GroundMarker";
 import ShoppingMarker from "./ShoppingMarker";

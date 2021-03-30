@@ -21,7 +21,7 @@ const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
       onMouseOut={handleMouseOut}
       onClick={handleClick}
       >
-      {(isShown || selectedPlace && selectedPlace.address === ground.address) && (
+      {(isShown || (selectedPlace && selectedPlace.address === ground.address)) && (
         <InfoWindow position={position}>
           <div>
             <p>{ground.name}</p>
