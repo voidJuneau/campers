@@ -132,3 +132,9 @@ a, a:hover {
     font-size: 28px;
   }
 }
+
+/* Shopping list */
+
+.hovered-card {
+  border: solid 2px #085F63;
+}

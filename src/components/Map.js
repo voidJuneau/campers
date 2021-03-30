@@ -24,7 +24,7 @@ const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace, refs }) =>
           refs={refs} />
       ));
       setMarkers(newMarkers);
-  }, [places, selectedPlace])
+  }, [places, selectedPlace, refs])
 
   
   return (
