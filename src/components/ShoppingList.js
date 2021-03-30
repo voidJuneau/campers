@@ -2,13 +2,11 @@ import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Button from "react-bootstrap/Button"
 
 import ShoppingCard from "./ShoppingCard";
 import ToggleMapButton from "./ToggleMapButton";
-import { Link } from "react-router-dom";
 
-const ShoppingList = ({ shoppings, setPlaces }) => {
+const ShoppingList = ({ shoppings, setPlaces, refs }) => {
   useEffect(() => {
     setPlaces(shoppings);
   }, [shoppings])
@@ -21,8 +19,8 @@ const ShoppingList = ({ shoppings, setPlaces }) => {
         </Col>
       </Row>
       <Row>
-        {shoppings.map(g => (
-          <ShoppingCard key={g.id} ground={g} />
+        {shoppings.map(s => (
+          <ShoppingCard key={s.id} shopping={s} refs={refs} />
         ))}
       </Row>
     </Container>

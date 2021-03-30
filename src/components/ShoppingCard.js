@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import { Link } from "react-router-dom";
 
-const GroundCard = ({ ground }) => {
+const ShoppingCard = ({ shopping, refs }) => {
+  
 
   return (
     <Col xm={12} sm={12} lg={6}>
-      <Link to={`/grounds/${ground.id}`}>
-        <Card>
-          <Card.Img variant="top" src={ground.img} />
-          <Card.Body>
-            <Card.Title>{ground.name}</Card.Title>
-            <Card.Text>See in detail »</Card.Text>
-          </Card.Body>
-        </Card>
-      </Link>
+      <Card ref={refs[shopping.address]}>
+        <Card.Img variant="top" src={shopping.img} />
+        <Card.Body>
+          <Card.Title>{shopping.name}</Card.Title>
+          <Card.Text>
+            {shopping.address.substring(0, shopping.address.indexOf(", "))}<br/>
+            {shopping.address.substring(shopping.address.indexOf(", ")+2)}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </Col>
   );
 }
 
-export default GroundCard;
+export default ShoppingCard;

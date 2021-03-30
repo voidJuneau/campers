@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { InfoWindow, Marker } from "@react-google-maps/api";
-import { Link } from "react-router-dom";
 
-const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
-  const position={lat: parseFloat(ground.lat), lng: parseFloat(ground.lon)}
+const ShoppingMarker = ({ shopping, selectedPlace, setSelectedPlace, refs }) => {
+  const position={lat: parseFloat(shopping.lat), lng: parseFloat(shopping.lon)}
   const [ isShown, setIsShown ] = useState(false)
   const handleMouseOver = () => {
     setIsShown(true);
+    console.log(refs[shopping.address])
+    refs[shopping.address].current.scrollIntoView();
   }
   const handleMouseOut = () => {
     setIsShown(false);
   }
   const handleClick = () => {
-    setSelectedPlace(ground);
+    setSelectedPlace(shopping);
   }
 
   return (
@@ -21,11 +22,12 @@ const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
       onMouseOut={handleMouseOut}
       onClick={handleClick}
       >
-      {(isShown || selectedPlace && selectedPlace.name === ground.name) && (
+      {(isShown || selectedPlace && selectedPlace.address === shopping.address) && (
         <InfoWindow position={position}>
           <div>
-            <p>{ground.name}</p>
-            <p><Link to={`/grounds/${ground.id}`}>See in detail »</Link></p>
+            <p>{shopping.name}</p>
+            <p>{shopping.address.split(", ").map((a, i) => 
+              (<React.Fragment key={i}>{a}<br/></React.Fragment>))}</p>
           </div>
         </InfoWindow>
       )}
@@ -33,4 +35,4 @@ const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
   )
 }
 
-export default GroundMarker;
+export default ShoppingMarker;

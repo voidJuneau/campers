@@ -21,11 +21,20 @@ const App = () => {
   const [shoppings, setShoppings] = useState([]);
   const [places, setPlaces] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState();
+  const [refs, setRefs] = useState({});
   
   useEffect(() => {
     Api.all("ground").then(data => setGrounds(data));
     Api.all("shopping").then(data => setShoppings(data));
   }, [])
+
+  useEffect(() => {
+    const newRefs = places.reduce((acc, p) => {
+      acc[p.address] = React.createRef();
+      return acc;
+    }, {});
+    setRefs(newRefs);
+  }, [places]);
   
   return (
     <Router>
@@ -61,8 +70,8 @@ const App = () => {
                     setCenter={setCenter} setZoom={setZoom}
                   />
                 </Route>
-                <Route exact path="/shoppings">
-                  <ShoppingList shoppings={shoppings} setPlaces={setPlaces} />
+                <Route exact path="/shopping">
+                  <ShoppingList shoppings={shoppings} setPlaces={setPlaces} refs={refs} />
                 </Route>
                 <Route path="/checklist">
                   <Checklist />
@@ -74,7 +83,7 @@ const App = () => {
             </Col>
             <Col id="map-col" md={7} className="main-col">
               <Map center={center} zoom={zoom} places={places}
-                selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} />
+                selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} refs={refs} />
             </Col>
           </Row>
         </Container>
