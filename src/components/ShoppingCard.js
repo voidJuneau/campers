@@ -2,12 +2,22 @@ import React, { useEffect, useRef } from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-const ShoppingCard = ({ shopping, refs }) => {
+const ShoppingCard = ({ shopping, refs, setHoveredPlace }) => {
   
+  const handleMouseOver = () => {
+    setHoveredPlace(shopping);
+    refs[shopping.address].current.classList.add("hovered-card");
+  }
+  const handleMouseOut = () => {
+    setHoveredPlace();
+    refs[shopping.address].current.classList.remove("hovered-card");
+  }
 
   return (
     <Col xm={12} sm={12} lg={6}>
-      <Card ref={refs[shopping.address]}>
+      <Card ref={refs[shopping.address]} 
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut} >
         <Card.Img variant="top" src={shopping.img} />
         <Card.Body>
           <Card.Title>{shopping.name}</Card.Title>

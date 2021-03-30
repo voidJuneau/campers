@@ -11,20 +11,18 @@ const containerStyle = {
   height: "100vh"
 };
 
-const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace, refs }) => {
-  console.log(process.env.REACT_APP_GOOGLE_KEY)
+const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace, refs, hoveredPlace }) => {
   const [markers, setMarkers] = useState([]);
-  console.log(refs)
   useEffect(() => {
     const newMarkers = []
     places.forEach(p => newMarkers.push(
       p.url ?
       <GroundMarker key={p.id + p.lat} ground={p} selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} />
-      : <ShoppingMarker key={p.id + p.lat} shopping={p} selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace}
+      : <ShoppingMarker key={p.id + p.lat} shopping={p} hoveredPlace={hoveredPlace}
           refs={refs} />
       ));
       setMarkers(newMarkers);
-  }, [places, selectedPlace, refs])
+  }, [places, selectedPlace, refs, hoveredPlace])
 
   
   return (

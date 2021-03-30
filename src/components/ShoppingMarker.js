@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { InfoWindow, Marker } from "@react-google-maps/api";
 
-const ShoppingMarker = ({ shopping, selectedPlace, setSelectedPlace, refs }) => {
+const ShoppingMarker = ({ shopping, refs, hoveredPlace }) => {
   const position={lat: parseFloat(shopping.lat), lng: parseFloat(shopping.lon)}
   const [ isShown, setIsShown ] = useState(false)
-  console.log(refs);
   const handleMouseOver = () => {
     setIsShown(true);
     refs[shopping.address].current.scrollIntoView();
@@ -14,17 +13,13 @@ const ShoppingMarker = ({ shopping, selectedPlace, setSelectedPlace, refs }) => 
     setIsShown(false);
     refs[shopping.address].current.classList.remove("hovered-card");
   }
-  const handleClick = () => {
-    setSelectedPlace(shopping);
-  }
 
   return (
     <Marker position={position}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      onClick={handleClick}
       >
-      {(isShown || selectedPlace && selectedPlace.address === shopping.address) && (
+      {(isShown || hoveredPlace && hoveredPlace.address === shopping.address) && (
         <InfoWindow position={position}>
           <div>
             <p>{shopping.name}</p>

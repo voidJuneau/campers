@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col"
 import ShoppingCard from "./ShoppingCard";
 import ToggleMapButton from "./ToggleMapButton";
 
-const ShoppingList = ({ shoppings, setPlaces, refs }) => {
+const ShoppingList = ({ shoppings, setPlaces, refs, setHoveredPlace }) => {
   useEffect(() => {
     setPlaces(shoppings);
   }, [shoppings])
@@ -20,7 +20,7 @@ const ShoppingList = ({ shoppings, setPlaces, refs }) => {
       </Row>
       <Row>
         {shoppings.map(s => (
-          <ShoppingCard key={s.id} shopping={s} refs={refs} />
+          <ShoppingCard key={s.id} shopping={s} refs={refs} setHoveredPlace={setHoveredPlace} />
         ))}
       </Row>
     </Container>

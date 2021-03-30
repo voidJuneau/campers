@@ -21,6 +21,7 @@ const App = () => {
   const [shoppings, setShoppings] = useState([]);
   const [places, setPlaces] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState();
+  const [hoveredPlace, setHoveredPlace] = useState();
   const [refs, setRefs] = useState({});
   
   useEffect(() => {
@@ -71,7 +72,8 @@ const App = () => {
                   />
                 </Route>
                 <Route exact path="/shopping">
-                  <ShoppingList shoppings={shoppings} setPlaces={setPlaces} refs={refs} />
+                  <ShoppingList shoppings={shoppings} setPlaces={setPlaces} 
+                    refs={refs} setHoveredPlace={setHoveredPlace} />
                 </Route>
                 <Route path="/checklist">
                   <Checklist />
@@ -83,7 +85,8 @@ const App = () => {
             </Col>
             <Col id="map-col" md={7} className="main-col">
               <Map center={center} zoom={zoom} places={places}
-                selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} refs={refs} />
+                selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} 
+                refs={refs} hoveredPlace={hoveredPlace} />
             </Col>
           </Row>
         </Container>
