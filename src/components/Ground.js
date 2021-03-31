@@ -11,6 +11,7 @@ const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) =>
     setPlaces(grounds);
     const thisGround = grounds.find(g => g.id === parseInt(id))
     if (!thisGround) return;
+    console.log(thisGround)
     setGround(thisGround);
     setSelectedPlace(thisGround);
     setCenter({lat:parseFloat(thisGround.lat), lng:parseFloat(thisGround.lon)});
@@ -30,11 +31,16 @@ const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) =>
             <h1>{ground.name}</h1>
             <Image fluid src={ground.img} alt={ground.name} className="mt-5 mb-5" />
             <p>Address <br />
-              {ground.address}</p>
+              {ground.address}
+              <Link to={`/grounds/shopping/${ground.id}`}>
+                <Button>Near Shopping</Button>
+              </Link>
+            </p>
             <p>Telephone <br />
               {ground.phone}</p>
-            <p>Homepage <br />
-              <a href={ground.url} target="_blank">{ground.url}</a></p>
+            <p className="w-100">Homepage <br />
+              <a href={ground.url} target="_blank">{ground.url}</a>
+            </p>
             <p>Rates <br />
               {ground.rate}</p>
           </Row>

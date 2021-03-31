@@ -23,7 +23,7 @@ const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace, refs, hove
       setMarkers(newMarkers);
   }, [places, selectedPlace, refs, hoveredPlace])
 
-  
+  useEffect(() => {console.log(center)}, [center])
   return (
     <div id="map-container" className="side-map d-none d-md-block">
       <ToggleMapButton className="map-button" />

@@ -11,6 +11,7 @@ import Ground from "./components/Ground";
 import AddGround from "./components/AddGround";
 import EditGround from "./components/EditGround";
 import ShoppingList from "./components/ShoppingList";
+import NearShoppingList from "./components/NearShoppingList";
 import Checklist from "./components/Checklist";
 import Api from "./utils/api";
 
@@ -36,6 +37,10 @@ const App = () => {
     }, {});
     setRefs(newRefs);
   }, [places]);
+
+  useEffect(() => {
+    console.log("places@app", places)
+  }, [places])
   
   return (
     <Router>
@@ -65,6 +70,12 @@ const App = () => {
                 </Route>
                 <Route path="/grounds/edit/:id">
                   <EditGround grounds={grounds} setGrounds={setGrounds} />
+                </Route>
+                <Route exact path="/grounds/shopping/:id">
+                  <NearShoppingList shoppings={shoppings} grounds={grounds} 
+                    setPlaces={setPlaces} setSelectedPlace={setSelectedPlace}
+                    refs={refs} setHoveredPlace={setHoveredPlace} 
+                    setZoom={setZoom} setCenter={setCenter} />
                 </Route>
                 <Route path="/grounds/:id">
                   <Ground grounds={grounds} 
