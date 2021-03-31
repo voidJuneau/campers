@@ -42,7 +42,7 @@ const GroundForm = ({ ground, buttonText, onSubmit }) => {
       <Form.Group controlId="formLat">
         <Form.Label>Latitude</Form.Label>
         <Form.Control type="number" placeholder="40.000000" 
-          value={content.alt} onChange={handleChange} />
+          value={content.lat} onChange={handleChange} />
       </Form.Group>
       <Form.Group controlId="formLon">
         <Form.Label>Longitude</Form.Label>
