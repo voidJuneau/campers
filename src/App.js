@@ -67,7 +67,8 @@ const App = () => {
                   <EditGround grounds={grounds} setGrounds={setGrounds} />
                 </Route>
                 <Route path="/grounds/:id">
-                  <Ground grounds={grounds} setPlaces={setPlaces} setSelectedPlace={setSelectedPlace}
+                  <Ground grounds={grounds} 
+                    setPlaces={setPlaces} setSelectedPlace={setSelectedPlace}
                     setCenter={setCenter} setZoom={setZoom}
                   />
                 </Route>
