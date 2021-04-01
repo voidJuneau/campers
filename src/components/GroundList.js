@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const GroundList = ({ grounds, setPlaces }) => {
   useEffect(() => {
     setPlaces(grounds);
-  }, [grounds])
+  }, [grounds, setPlaces])
 
   return (
     <Container className="side-page">

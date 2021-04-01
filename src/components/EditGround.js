@@ -11,7 +11,7 @@ const EditGround = ({ grounds, setGrounds }) => {
   const [ ground, setGround ] = useState();
   useEffect(() => {
     setGround(grounds.find(g => g.id === parseInt(id)));
-  }, [])
+  }, [grounds, id])
   const handleSubmit = (event, content) => {
     event.preventDefault();
     Api.edit(content, id)

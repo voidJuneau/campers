@@ -17,7 +17,7 @@ import Api from "./utils/api";
 
 const App = () => {
   const [center, setCenter] = useState({lat: 43.2464343, lng: -79.8618984});
-  const [zoom, setZoom] = useState(9);
+  const [zoom, setZoom] = useState(10);
   const [grounds, setGrounds] = useState([]);
   const [shoppings, setShoppings] = useState([]);
   const [places, setPlaces] = useState([]);
@@ -37,10 +37,6 @@ const App = () => {
     }, {});
     setRefs(newRefs);
   }, [places]);
-
-  useEffect(() => {
-    console.log("places@app", places)
-  }, [places])
   
   return (
     <Router>
@@ -75,7 +71,7 @@ const App = () => {
                   <NearShoppingList shoppings={shoppings} grounds={grounds} 
                     setPlaces={setPlaces} setSelectedPlace={setSelectedPlace}
                     refs={refs} setHoveredPlace={setHoveredPlace} 
-                    setZoom={setZoom} setCenter={setCenter} />
+                    setCenter={setCenter} setZoom={setZoom} />
                 </Route>
                 <Route path="/grounds/:id">
                   <Ground grounds={grounds} 

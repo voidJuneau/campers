@@ -9,7 +9,7 @@ import ToggleMapButton from "./ToggleMapButton";
 const ShoppingList = ({ shoppings, setPlaces, refs, setHoveredPlace }) => {
   useEffect(() => {
     setPlaces(shoppings);
-  }, [shoppings])
+  }, [shoppings, setPlaces])
 
   return (
     <Container className="side-page">

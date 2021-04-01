@@ -11,12 +11,11 @@ const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) =>
     setPlaces(grounds);
     const thisGround = grounds.find(g => g.id === parseInt(id))
     if (!thisGround) return;
-    console.log(thisGround)
     setGround(thisGround);
     setSelectedPlace(thisGround);
     setCenter({lat:parseFloat(thisGround.lat), lng:parseFloat(thisGround.lon)});
-    setZoom(10);
-  }, [id, grounds]);
+    setZoom(11);
+  }, [id, grounds, setPlaces, setSelectedPlace, setCenter, setZoom]);
   
   return (
     <Container className="side-page">
@@ -39,7 +38,7 @@ const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) =>
             <p>Telephone <br />
               {ground.phone}</p>
             <p className="w-100">Homepage <br />
-              <a href={ground.url} target="_blank">{ground.url}</a>
+              <a href={ground.url} target="_blank" rel="noreferrer">{ground.url}</a>
             </p>
             <p>Rates <br />
               {ground.rate}</p>

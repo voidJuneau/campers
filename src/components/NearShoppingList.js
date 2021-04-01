@@ -13,10 +13,11 @@ const NearShoppingList = ({ shoppings, grounds,
                             refs, setZoom, setCenter }) => {
   const { id } = useParams();
   const [ nearPlaces, setNearPlaces ] = useState([]);
-  setZoom(11);
+  
   useEffect(() => {
     const ground = grounds.find(g => g.id === parseInt(id))
     if (!ground) return;
+    setZoom(11);
     setCenter({lat: parseFloat(ground.lat), lng: parseFloat(ground.lon)});
     // Select shopping places within 7 miles
     const newPlaces = shoppings.filter(s => 
@@ -25,7 +26,7 @@ const NearShoppingList = ({ shoppings, grounds,
     newPlaces.push(ground);
     setSelectedPlace(ground);
     setPlaces(newPlaces);
-  }, [shoppings, grounds])
+  }, [shoppings, grounds, id, setPlaces, setCenter, setSelectedPlace, setZoom])
 
   return (
     <Container className="side-page">

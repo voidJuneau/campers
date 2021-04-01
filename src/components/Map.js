@@ -15,15 +15,16 @@ const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace, refs, hove
   useEffect(() => {
     const newMarkers = []
     places.forEach(p => newMarkers.push(
+      // Detect if the place is either campinground or shopping place, 
+      // by checking their "url" attribute
       p.url ?
       <GroundMarker key={p.id + p.lat} ground={p} selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} />
       : <ShoppingMarker key={p.id + p.lat} shopping={p} hoveredPlace={hoveredPlace}
           refs={refs} />
       ));
       setMarkers(newMarkers);
-  }, [places, selectedPlace, refs, hoveredPlace])
+  }, [places, selectedPlace, hoveredPlace, refs, setSelectedPlace]);
 
-  useEffect(() => {console.log(center)}, [center])
   return (
     <div id="map-container" className="side-map d-none d-md-block">
       <ToggleMapButton className="map-button" />

@@ -4,7 +4,7 @@ import { Col, Image, Row } from "react-bootstrap";
 const Main = ({ grounds, setPlaces }) => {
   useEffect(() => {
     setPlaces(grounds);
-  }, [grounds])
+  }, [grounds, setPlaces])
   
   return (
     <div className="side-page">
