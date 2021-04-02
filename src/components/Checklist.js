@@ -14,7 +14,7 @@ const content = {
 const Checklist = () => {
   return (
     <Container className="side-page">
-      <h1 className="mb-5">Checklist</h1>
+      <h1 className="mb-5 text-center">Checklist</h1>
       <Form>
         {Object.entries(content).map(items => (<ChecklistGroup items={items} key={items[0]} />))}
         

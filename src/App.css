@@ -74,6 +74,10 @@ a, a:hover {
   z-index: 1;
 }
 
+.gm-style .gm-style-iw-d {
+  max-width: 200px;
+}
+
 /* Map - less then medium */
 @media only screen and (max-width: 767px) {
   .side-map {
@@ -136,5 +140,5 @@ a, a:hover {
 /* Shopping list */
 
 .hovered-card {
-  border: solid 2px #085F63;
+  border: solid 2px #f0ad4e;
 }

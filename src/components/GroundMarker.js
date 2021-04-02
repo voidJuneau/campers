@@ -24,8 +24,8 @@ const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
       {(isShown || (selectedPlace && selectedPlace.address === ground.address)) && (
         <InfoWindow position={position}>
           <div>
-            <p>{ground.name}</p>
-            <p><Link to={`/grounds/${ground.id}`}>See in detail »</Link></p>
+            <h6>{ground.name}</h6>
+            <p className="mb-0 text-right"><Link to={`/grounds/${ground.id}`}>See in detail »</Link></p>
           </div>
         </InfoWindow>
       )}

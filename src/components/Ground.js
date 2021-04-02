@@ -27,20 +27,20 @@ const Ground = ({ grounds, setPlaces, setSelectedPlace, setCenter, setZoom }) =>
             </Col>
           </Row>
           <Row>
-            <h1>{ground.name}</h1>
+            <h2>{ground.name}</h2>
             <Image fluid src={ground.img} alt={ground.name} className="mt-5 mb-5" />
-            <p>Address <br />
+            <p className="mb-0"><strong>Address</strong> <br />
               {ground.address}
-              <Link to={`/grounds/shopping/${ground.id}`}>
-                <Button>Near Shopping</Button>
-              </Link>
             </p>
-            <p>Telephone <br />
+            <Link to={`/grounds/shopping/${ground.id}`} className="w-100">
+              <p className="text-right">Near Shopping »</p>
+            </Link>
+            <p><strong>Telephone</strong> <br />
               {ground.phone}</p>
-            <p className="w-100">Homepage <br />
+            <p className="w-100"><strong>Homepage</strong> <br />
               <a href={ground.url} target="_blank" rel="noreferrer">{ground.url}</a>
             </p>
-            <p>Rates <br />
+            <p><strong>Rates</strong> <br />
               {ground.rate}</p>
           </Row>
           <Row className="justify-content-end mt-5">

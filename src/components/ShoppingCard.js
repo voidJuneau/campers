@@ -6,11 +6,13 @@ const ShoppingCard = ({ shopping, refs, setHoveredPlace }) => {
   
   const handleMouseOver = () => {
     setHoveredPlace(shopping);
-    refs[shopping.address].current.classList.add("hovered-card");
+    if (refs[shopping.address])
+      refs[shopping.address].current.classList.add("hovered-card");
   }
   const handleMouseOut = () => {
     setHoveredPlace();
-    refs[shopping.address].current.classList.remove("hovered-card");
+    if (refs[shopping.address])
+      refs[shopping.address].current.classList.remove("hovered-card");
   }
 
   return (
@@ -18,7 +20,7 @@ const ShoppingCard = ({ shopping, refs, setHoveredPlace }) => {
       <Card ref={refs[shopping.address]} 
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut} >
-        <Card.Img variant="top" src={shopping.img} />
+        <Card.Img variant="top" src={`/images/${shopping.brand}.png`} />
         <Card.Body>
           <Card.Title>{shopping.name}</Card.Title>
           <Card.Text>

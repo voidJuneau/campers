@@ -26,7 +26,7 @@ const EditGround = ({ grounds, setGrounds }) => {
   return (
     <Container className="side-page">
       {edited && <Redirect to={`/grounds/${id}`} />}
-      <h1 className="mb-5"> Edit </h1>
+      <h2 className="mb-5 text-center"> Edit </h2>
       <GroundForm ground={ground} buttonText="Submit" onSubmit={handleSubmit} />
     </Container>
   )

@@ -31,7 +31,7 @@ const AddGround = ({ setGrounds }) => {
     <Container className="side-page">
       {id && <Redirect to={`/grounds/${id}`} />}
       <div>
-        <h1>Add a New Campground </h1>
+        <h2 className="text-center mb-5">Add a New Campground </h2>
         <GroundForm buttonText="Submit" onSubmit={handleSubmit} />
       </div>
     </Container>
