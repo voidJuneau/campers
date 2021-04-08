@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { InfoWindow, Marker } from "@react-google-maps/api";
 import { Link } from "react-router-dom";
 
+import groundMarker from "../images/groundMarker.svg";
+import groundMarkerHighlight from "../images/groundMarkerHighlight.svg";
+
 const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
   const position={lat: parseFloat(ground.lat), lng: parseFloat(ground.lon)}
   const [ isShown, setIsShown ] = useState(false)
@@ -20,6 +23,7 @@ const GroundMarker = ({ ground, selectedPlace, setSelectedPlace }) => {
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
       onClick={handleClick}
+      icon={{url: (ground === selectedPlace ? groundMarkerHighlight : groundMarker)}}
       >
       {(isShown || (selectedPlace && selectedPlace.address === ground.address)) && (
         <InfoWindow position={position}>

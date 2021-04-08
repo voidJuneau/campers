@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { InfoWindow, Marker } from "@react-google-maps/api";
 
+import shoppingMarker from "../images/shoppingMarker.svg"
+import shoppingMarkerHighlight from "../images/shoppingMarkerHighlight.svg"
+
 const ShoppingMarker = ({ shopping, refs, hoveredPlace }) => {
   const position={lat: parseFloat(shopping.lat), lng: parseFloat(shopping.lon)}
   const [ isShown, setIsShown ] = useState(false)
@@ -21,6 +24,8 @@ const ShoppingMarker = ({ shopping, refs, hoveredPlace }) => {
     <Marker position={position}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
+      icon={{url: ((isShown || shopping === hoveredPlace) 
+        ? shoppingMarkerHighlight : shoppingMarker)}}
       >
       {(isShown || (hoveredPlace && hoveredPlace.address === shopping.address)) && (
         <InfoWindow position={position}>
