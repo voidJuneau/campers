@@ -32,6 +32,12 @@ a, a:hover {
   margin-right: 1.5rem;
 }
 
+@media only screen and (max-width: 767px) {
+  .navbar-dark .navbar-brand {
+    margin-right: 0;
+  }
+}
+
 .navbar-dark .navbar-nav .nav-link {
   color: rgba(255,255,255,.90);
   padding: 0.5rem 1.5rem;
@@ -64,6 +70,7 @@ a, a:hover {
   position: fixed;
   right: 0;
   width: 58.333%;
+  height: 100%;
   z-index: -1;
 }
 
