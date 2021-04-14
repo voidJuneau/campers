@@ -8,7 +8,7 @@ import GroundCard from "./GroundCard";
 import ToggleMapButton from "./ToggleMapButton";
 import { Link } from "react-router-dom";
 
-const GroundList = ({ grounds, setPlaces }) => {
+const GroundList = ({ grounds, setPlaces, refs, setHoveredPlace }) => {
   useEffect(() => {
     setPlaces(grounds);
   }, [grounds, setPlaces])
@@ -28,7 +28,8 @@ const GroundList = ({ grounds, setPlaces }) => {
       </Row>
       <Row>
         {grounds.map(g => (
-          <GroundCard key={g.id} ground={g} />
+          <GroundCard key={g.id} ground={g} 
+            refs={refs} setHoveredPlace={setHoveredPlace} />
         ))}
       </Row>
     </Container>

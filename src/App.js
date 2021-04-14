@@ -59,10 +59,12 @@ const App = () => {
             <Col id="page-col" sm={12} md={5} className="main-col">
               <Switch>
                 <Route exact path="/grounds">
-                  <GroundList grounds={grounds} setPlaces={setPlaces} />
+                  <GroundList grounds={grounds} setPlaces={setPlaces}
+                    refs={refs} setHoveredPlace={setHoveredPlace} 
+                     />
                 </Route>
                 <Route path="/grounds/new">
-                  <AddGround setGrounds={setGrounds} />
+                  <AddGround setGrounds={setGrounds} setSelectedPlace={setSelectedPlace} />
                 </Route>
                 <Route path="/grounds/edit/:id">
                   <EditGround grounds={grounds} setGrounds={setGrounds} />
@@ -71,7 +73,8 @@ const App = () => {
                   <NearShoppingList shoppings={shoppings} grounds={grounds} 
                     setPlaces={setPlaces} setSelectedPlace={setSelectedPlace}
                     refs={refs} setHoveredPlace={setHoveredPlace} 
-                    setCenter={setCenter} setZoom={setZoom} />
+                    setCenter={setCenter} setZoom={setZoom} 
+                  />
                 </Route>
                 <Route path="/grounds/:id">
                   <Ground grounds={grounds} 

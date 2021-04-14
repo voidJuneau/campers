@@ -9,14 +9,14 @@ const ShoppingMarker = ({ shopping, refs, hoveredPlace }) => {
   const [ isShown, setIsShown ] = useState(false)
   const handleMouseOver = () => {
     setIsShown(true);
-    if (refs[shopping.address]) {
+    if (refs[shopping.address] && refs[shopping.address].current) {
       refs[shopping.address].current.scrollIntoView();
       refs[shopping.address].current.classList.add("hovered-card");
     }
   }
   const handleMouseOut = () => {
     setIsShown(false);
-    if (refs[shopping.address])
+    if (refs[shopping.address] && refs[shopping.address].current)
       refs[shopping.address].current.classList.remove("hovered-card");
   }
 

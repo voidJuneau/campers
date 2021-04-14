@@ -18,9 +18,11 @@ const Map = ({ center, zoom, places, selectedPlace, setSelectedPlace, refs, hove
       // Detect if the place is either campinground or shopping place, 
       // by checking their "url" attribute
       p.url ?
-      <GroundMarker key={p.id + p.lat} ground={p} selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace} />
-      : <ShoppingMarker key={p.id + p.lat} shopping={p} hoveredPlace={hoveredPlace}
-          refs={refs} />
+      <GroundMarker key={p.id + p.lat} ground={p} 
+        selectedPlace={selectedPlace} setSelectedPlace={setSelectedPlace}
+        hoveredPlace={hoveredPlace} refs={refs} />
+      : <ShoppingMarker key={p.id + p.lat} shopping={p} 
+        hoveredPlace={hoveredPlace} refs={refs} />
       ));
       setMarkers(newMarkers);
   }, [places, selectedPlace, hoveredPlace, refs, setSelectedPlace]);

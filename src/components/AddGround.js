@@ -5,8 +5,9 @@ import GroundForm from "./GroundForm";
 import Api from "../utils/api"
 import { Redirect } from "react-router";
 
-const AddGround = ({ setGrounds }) => {
+const AddGround = ({ setGrounds, setSelectedPlace }) => {
   const [id, setId] = useState();
+  setSelectedPlace();
   const handleSubmit = (event) => {
     event.preventDefault();
     const entry = {
